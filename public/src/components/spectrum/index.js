@@ -103,7 +103,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
                 })
             } else {
                 gameUpdate.mirrors.forEach((m, i, arr)=>{
-                    mirrors[i] = new Mirror({location: p5.createVector(m.x*p5.width, m.y*p5.height), player, color: m.player, ID: m.ID,
+                    mirrors[i] = new Mirror({location: p5.createVector(m.x*p5.width, m.y*p5.height), player, color: m.player, ID: m.ID || Math.random(),
                         onClick: ()=>{
                             socket.emit("/selected", {type: "mirror", index: i});
                         },

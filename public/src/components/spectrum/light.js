@@ -110,9 +110,9 @@ class Beam {
                 let y = beamStart.y + t * (beamEnd.y - beamStart.y);
                 let distance = p5.dist(beamStart.x, beamStart.y, x, y);
                 // save for later
-                if(this.mirrors[i].id!=mirror) {
+                if(this.mirrors[i].ID!=mirror) {
                     let reflectionNormal = this.mirrors[i].getReflection(p5);
-                    intersectionPoints.push({x: x, y: y, distance: distance, mirror: this.mirrors[i].id, direction: 0, reflectionNormal: reflectionNormal});
+                    intersectionPoints.push({x: x, y: y, distance: distance, mirror: this.mirrors[i].ID, direction: 0, reflectionNormal: reflectionNormal});
                 }
             }
             
