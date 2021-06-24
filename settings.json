@@ -24,237 +24,269 @@
         "plantsAmount": 5,
         "safeDistance": 50,
         "scoreUpdate": 20
-    }, 
+    },
     "sensorTypes" : [
         {
-            "name" : "type1",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+            "name" : "Humidity",
+            "description": "Humidity"
         },
         {
-            "name" : "type2",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+            "name" : "Temp",
+            "description": "Temperature"
         },
         {
-            "name" : "type3",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+            "name" : "Microwave",
+            "description": "Microwave"
+        },
+        {
+            "name" : "Moisture",
+            "description": "Moisture"
+        },
+        {
+            "name" : "Distance",
+            "description": "Distance"
+        },
+        {
+            "name" : "Wino",
+            "description": "Winogradsky"
+        },
+        {
+            "name" : "Heart",
+            "description": "Heart Sensor"
+        },
+        {
+            "name" : "Controller",
+            "description": "Controller"
         }
     ],
     "plantClusters" : [
         {
-            "name" : "plant1",
+            "name" : "ESP_DHT_1",
             "sensors": [
                 {
-                    "name" : "plant1Sensor1",
-                    "type" : "type1"
+                    "name" : "H1",
+                    "type" : "Humidity"
                 },
                 {
-                    "name" : "plant1Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant1Sensor3",
-                    "type" : "type3"
+                    "name" : "T1",
+                    "type" : "Temperature"
                 }
+
             ]
-            
+
         },
         {
-            "name" : "plant2",
+            "name" : "ESP_DHT_2",
             "sensors": [
                 {
-                    "name" : "plant2Sensor1",
-                    "type" : "type1"
+                    "name" : "H2",
+                    "type" : "Humidity"
                 },
                 {
-                    "name" : "plant2Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant2Sensor3",
-                    "type" : "type3"
+                    "name" : "T2",
+                    "type" : "Temperature"
                 }
+
             ]
-        },  {
-            "name" : "plant3",
-            "sensors": [
-                {
-                    "name" : "plant3Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant3Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant3Sensor3",
-                    "type" : "type3"
-                }
-            ]
-        },  {
-            "name" : "plant4",
-            "sensors": [
-                {
-                    "name" : "plant4Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant4Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant4Sensor3",
-                    "type" : "type3"
-                }
-            ]
-        },  {
-            "name" : "plant5",
-            "sensors": [
-                {
-                    "name" : "plant5Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant5Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant5Sensor3",
-                    "type" : "type3"
-                }
-            ]
-        },  {
-            "name" : "plant6",
-            "sensors": [
-                {
-                    "name" : "plant6Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant6Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant6Sensor3",
-                    "type" : "type3"
-                }
-            ]
-        },  {
-            "name" : "plant7",
-            "sensors": [
-                {
-                    "name" : "plant7Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant7Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant7Sensor3",
-                    "type" : "type3"
-                }
-            ]
-        }, {
-            "name" : "plant8",
-            "sensors": [
-                {
-                    "name" : "plant8Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant8Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant8Sensor3",
-                    "type" : "type3"
-                }
-            ]
-            
+
         },
         {
-            "name" : "plant9",
+            "name" : "ESP_DHT_3",
             "sensors": [
                 {
-                    "name" : "plant9Sensor1",
-                    "type" : "type1"
+                    "name" : "H3",
+                    "type" : "Humidity"
                 },
                 {
-                    "name" : "plant9Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant9Sensor3",
-                    "type" : "type3"
+                    "name" : "T3",
+                    "type" : "Temperature"
+                }
+
+            ]
+
+        },
+
+        {
+            "name" : "ESP_MOI_1",
+            "sensors": [
+                {
+                    "name" : "MOI1",
+                    "type" : "Moisture"
                 }
             ]
-        },  {
-            "name" : "plant10",
+        },
+        {
+            "name" : "ESP_MOI_2",
             "sensors": [
                 {
-                    "name" : "plant10Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant10Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant10Sensor3",
-                    "type" : "type3"
+                    "name" : "MOI2",
+                    "type" : "Moisture"
                 }
             ]
-        },  {
-            "name" : "plant11",
+        },
+        {
+            "name" : "ESP_MOI_3",
             "sensors": [
                 {
-                    "name" : "plant11Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant11Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant11Sensor3",
-                    "type" : "type3"
+                    "name" : "MOI3",
+                    "type" : "Moisture"
                 }
             ]
-        },  {
-            "name" : "plant12",
+        },
+        {
+            "name" : "ESP_MOI_4",
             "sensors": [
                 {
-                    "name" : "plant12Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant12Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant12Sensor3",
-                    "type" : "type3"
+                    "name" : "MOI4",
+                    "type" : "Moisture"
                 }
             ]
-        },  {
-            "name" : "plant13",
+        },
+        {
+            "name" : "ESP_MOI_5",
             "sensors": [
                 {
-                    "name" : "plant13Sensor1",
-                    "type" : "type1"
-                },
-                {
-                    "name" : "plant13Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant13Sensor3",
-                    "type" : "type3"
+                    "name" : "MOI5",
+                    "type" : "Moisture"
                 }
             ]
-        },  {
-            "name" : "plant14",
+        },
+        {
+            "name" : "ESP_MOI_6",
             "sensors": [
                 {
-                    "name" : "plant14Sensor1",
-                    "type" : "type1"
-                },
+                    "name" : "MOI6",
+                    "type" : "Moisture"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_MOI_7",
+            "sensors": [
                 {
-                    "name" : "plant14Sensor2",
-                    "type" : "type2"
-                }, {
-                    "name" : "plant14Sensor3",
-                    "type" : "type3"
+                    "name" : "MOI7",
+                    "type" : "Moisture"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_MOI_8",
+            "sensors": [
+                {
+                    "name" : "MOI8",
+                    "type" : "Moisture"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_MOI_9",
+            "sensors": [
+                {
+                    "name" : "MOI9",
+                    "type" : "Moisture"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_MIC_1",
+            "sensors": [
+                {
+                    "name" : "MIC1",
+                    "type" : "Microwave"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_DIS_1",
+            "sensors": [
+                {
+                    "name" : "DIS1",
+                    "type" : "Distance"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_DIS_2",
+            "sensors": [
+                {
+                    "name" : "DIS2",
+                    "type" : "Distance"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_HEA_1",
+            "sensors": [
+                {
+                    "name" : "HEA1",
+                    "type" : "Heart"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_HEA_2",
+            "sensors": [
+                {
+                    "name" : "HEA2",
+                    "type" : "Heart"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_HEA_3",
+            "sensors": [
+                {
+                    "name" : "HEA3",
+                    "type" : "Heart"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_WIN_1",
+            "sensors": [
+                {
+                    "name" : "WIN1",
+                    "type" : "Winogradsky"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_WIN_2",
+            "sensors": [
+                {
+                    "name" : "WIN2",
+                    "type" : "Winogradsky"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_CON_1",
+            "sensors": [
+                {
+                    "name" : "CON1",
+                    "type" : "Controller"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_CON_2",
+            "sensors": [
+                {
+                    "name" : "CON2",
+                    "type" : "Controller"
+                }
+            ]
+        },
+        {
+            "name" : "ESP_CON_3",
+            "sensors": [
+                {
+                    "name" : "CON3",
+                    "type" : "Controller"
                 }
             ]
         }
+
     ]
 }
 

@@ -27,8 +27,7 @@
     "redux-thunk": "^2.3.0",
     "socket.io-client": "^4.1.2",
     "source-code-pro": "^2.30.2",
-    "styled-components": "^5.1.1",
-    "node-hue-api" : "5.0.0"
+    "styled-components": "^5.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
