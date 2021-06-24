@@ -4,15 +4,17 @@ import {segment_intersection} from "./auxi";
 
 
 class Mirror extends InteractiveObject {
-    constructor({location, size, color, alternativeColor, direction, id, onClick, player}, p5){
+    constructor({location, size, color, alternativeColor, direction, ID, onClick, player}, p5){
         super(location, size);
         this.color = color;
         this.alternativeColor = alternativeColor;
         this.rotation = 0;
         this.strokeWeight = 5;
         this.player = player;
+        this.ID = ID;
         // store mirror id, as it can help with debugging
-        this.id = "mirror_"+id;
+        // this.id = "mirror_"+id;
+
         
         // generate a random direction and create the handle
         let randDirection = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
