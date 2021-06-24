@@ -1,0 +1,260 @@
+{
+    "port" : 2200,
+    "publicDirectory": "public/frontx/build",
+    "intro":{
+        "font": "The Edge",
+        "lc": 10,
+        "pa": 2,
+        "ma": 3,
+        "border": "green",
+        "color": "blue",
+        "text": "green"
+    },
+    "mongoString" : "mongodb+srv://subtiv:Vklcw0APQZBZ1r0O@cluster0.lhm9q.mongodb.net/data?retryWrites=true&w=majority",
+    "requiredFields" : [
+        "author",
+        "device",
+        "sensor",
+        "value"
+    ],
+    "game" : {
+        "beginningTime": 3,
+        "duration": 20,
+        "mirrorsPerPlayer": 3,
+        "plantsAmount": 5,
+        "safeDistance": 50,
+        "scoreUpdate": 20
+    }, 
+    "sensorTypes" : [
+        {
+            "name" : "type1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+        },
+        {
+            "name" : "type2",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+        },
+        {
+            "name" : "type3",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet mattis turpis. Sed sed turpis felis. Nam vel ligula placerat, convallis dui in, pharetra lacus. Quisque mollis, magna eget viverra rhoncus, arcu elit vehicula eros, ut vehicula lacus nisi ac mi. Mauris porttitor erat ac auctor finibus. Quisque eleifend tincidunt lacus. Aenean fringilla, sapien eget iaculis commodo, massa mi fringilla odio, at elementum orci orci eget nulla. Curabitur ut pharetra quam. Quisque quis ligula sit amet erat posuere mollis eu ac erat. Aliquam eget fringilla sem. Phasellus et ligula id mauris sollicitudin elementum ac eget nibh. Duis metus lectus, maximus et faucibus in, congue vitae risus."
+        }
+    ],
+    "plantClusters" : [
+        {
+            "name" : "plant1",
+            "sensors": [
+                {
+                    "name" : "plant1Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant1Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant1Sensor3",
+                    "type" : "type3"
+                }
+            ]
+            
+        },
+        {
+            "name" : "plant2",
+            "sensors": [
+                {
+                    "name" : "plant2Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant2Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant2Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant3",
+            "sensors": [
+                {
+                    "name" : "plant3Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant3Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant3Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant4",
+            "sensors": [
+                {
+                    "name" : "plant4Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant4Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant4Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant5",
+            "sensors": [
+                {
+                    "name" : "plant5Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant5Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant5Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant6",
+            "sensors": [
+                {
+                    "name" : "plant6Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant6Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant6Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant7",
+            "sensors": [
+                {
+                    "name" : "plant7Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant7Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant7Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        }, {
+            "name" : "plant8",
+            "sensors": [
+                {
+                    "name" : "plant8Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant8Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant8Sensor3",
+                    "type" : "type3"
+                }
+            ]
+            
+        },
+        {
+            "name" : "plant9",
+            "sensors": [
+                {
+                    "name" : "plant9Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant9Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant9Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant10",
+            "sensors": [
+                {
+                    "name" : "plant10Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant10Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant10Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant11",
+            "sensors": [
+                {
+                    "name" : "plant11Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant11Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant11Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant12",
+            "sensors": [
+                {
+                    "name" : "plant12Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant12Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant12Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant13",
+            "sensors": [
+                {
+                    "name" : "plant13Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant13Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant13Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        },  {
+            "name" : "plant14",
+            "sensors": [
+                {
+                    "name" : "plant14Sensor1",
+                    "type" : "type1"
+                },
+                {
+                    "name" : "plant14Sensor2",
+                    "type" : "type2"
+                }, {
+                    "name" : "plant14Sensor3",
+                    "type" : "type3"
+                }
+            ]
+        }
+    ]
+}
+
