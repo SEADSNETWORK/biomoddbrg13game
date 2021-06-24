@@ -42,7 +42,6 @@ const Game = ()=>{
     }
 
     useEffect(()=>{
-      console.log("fuck")
       if (socket){
         setListeners(true);
         socket.on("/phase", (newphase)=>{

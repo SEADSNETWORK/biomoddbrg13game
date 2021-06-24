@@ -15,6 +15,8 @@ const Controller = ({phase, phases, target, player})=>{
         ]);
     const [plantClusters, setPlantClusters] = useState(null);
     const [selected, setSelected] = useState(null);
+    const [score, setScore] = useState(null);
+    const [highScore, setHighScore] = useState(null);
     const ROT = 3;
     const TRA = 10;
 
@@ -27,11 +29,22 @@ const Controller = ({phase, phases, target, player})=>{
             socket.on("/updateSensors", (plantClusters)=>{
                 setPlantClusters(plantClusters);
             });
+
+            socket.on("/score_", (score_)=>{
+                setScore(score_)
+            })
+
+            socket.on("/highscore", (highscore_)=>{
+                setHighScore(highscore_);
+                console.log(highscore_);
+            })
         }
 
         return ()=>{
             socket.off("/selected_");
             socket.off("/updateSensors");
+            socket.off("/score_");
+            socket.off("/highscore");
         }
     })
 
@@ -128,10 +141,27 @@ const Controller = ({phase, phases, target, player})=>{
                     {player? <span>PlayerColor = {player} </span> : null}
                 </div>
                 <div>
-                    {(target && phase == phases.RUNNING)? <span> <Countdown target={target} displaytext={"Time remaining"} endText={"THE END"} /> </span> : null}
+                    {(target && phase == phases.RUNNING)? <span> 
+                        <Countdown target={target} displaytext={"Time remaining"} endText={"THE END"} /> <br/>
+                        </span> : null}
                 </div>
 
                 <br/>
+
+                <div>
+                {score?<div>
+                            -- SCORE <br/>
+                            RED: {score.red} <br/>
+                            GREEN: {score.green} <br/>
+                            BLUE: {score.blue} <br/>
+                            TOTAL: {score.red+score.green+score.blue}
+                        </div>:null}
+                {highScore?<div>
+                    HIGHSCORE_INDIVIDUAL: {highScore.HS1} <br />
+                    HIGHSCORE_TOTAL: {highScore.HSA} <br />
+                </div>:null}
+
+                </div>
                 
 
                 <SensorTypes />

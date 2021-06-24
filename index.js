@@ -35,7 +35,7 @@ const players = {
 }
 
 const state = {
-    score : {},
+    score : {red: 0, green: 0, blue: 0},
     mirrors: [],
     plants: [],
     red: 0,
@@ -74,17 +74,49 @@ const scoreHistory = []
             io.emit("/phase", np);
         }
 
+        const sendHighScores = ()=>{
+            let HS1 = 0;
+            let HSA = 0;
+
+            scoreHistory.forEach(({red, green, blue})=>{
+                if (red > HS1){
+                    HS1 = red;
+                }  
+                
+                if (green > HS1){
+                    HS1 = green;
+                } 
+                
+                if (blue > HS1){
+                    HS1 = blue;
+                }
+                const a = red+green+blue;
+                if (a > HSA){
+                    HSA  = a;
+                }
+            })
+
+            socket.emit("/highscore", {HS1, HSA});
+        }   
+
         socket.on("/startgame", (player)=>{
             players[player] = true;
-            console.log("starting new game");
             io.emit("/players", players);
+            sendHighScores();
+
 
             if (phase == PHASES.END){
                 
                 updatePhase(PHASES.LOAD);
 
                 scoreHistory.push(state.score);
-                state.score = {};
+                sendHighScores();
+
+                while(scoreHistory.length > 100){
+                    scoreHistory.pop();
+                }
+
+                state.score = {red: 0, green: 0, blue: 0};
                 state.red = {x: 0, y: 0};
                 state.green = {x: 0, y: 0};
                 state.blue = {x: 0, y: 0};
@@ -128,6 +160,7 @@ const scoreHistory = []
                         players[key] = false;
                     }
                     updatePhase(PHASES.END);
+                    sendHighScores();
                     io.emit("/players", players);
                 }, (settings.game.duration + settings.game.beginningTime) * 1000)
             }
@@ -162,7 +195,8 @@ const scoreHistory = []
         })
 
         socket.on("/score", ({player, score})=>{
-            state.score[player] = score;
+            state.score[player] += score;
+            socket.emit("/score_", state.score);
         })
 
         socket.on("/selected", (v)=>{
@@ -175,6 +209,10 @@ const scoreHistory = []
 
         socket.on("/moveMirror_", (v)=>{
             io.emit("/moveMirror", v);
+        })
+
+        socket.on("/lights", (lights)=>{
+            // change lights here....
         })
 
       });

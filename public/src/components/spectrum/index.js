@@ -191,8 +191,29 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
 
 
         if (p5.frameCount%scoreUpdate == 0){
-            socket.emit("/score", {player, score: p5.frameCount})
+            let score = 0;
+
             socket.emit("/giveGameUpdate");
+            if (plants && plants[0]){
+                socket.emit("/lights", plants.map((p, index)=>{
+                    if (p.currentColors[player]){
+                        score++;
+                    }
+                    p.currentColors = {
+                        red: false,
+                        green: false,
+                        blue: false
+                    };
+                    return {
+                    index,
+                    colors: p.currentColors
+                }}))
+            }
+
+
+
+            socket.emit("/score", {player, score})
+
         }
 	};
 

@@ -53,6 +53,7 @@ const Plants = (plantClusters)=>{
     
 
     useEffect(()=>{
+        
     })
 
     if (!plantClusters){
@@ -64,7 +65,7 @@ const Plants = (plantClusters)=>{
             --> <span className="hoverer" onClick={toggle}>  PLANTS   {open?<span>[X]</span>:null}</span>
         </span>
         
-        {open?plantClusters.map(p=><Plant key={p.name} name={p.name} sensors={p.sensors} />):null}
+        {open?plantClusters.plantClusters.map(p=><Plant key={p.name} name={p.name} sensors={p.sensors} />):null}
     </div>
 
     

@@ -15,12 +15,20 @@ class Plant extends InteractiveObject {
         this.collisionColor = 'red';
         this.colorplaceholder = color;
         this.onClick = onClick;
-        this.currenctColors = [];
+        this.currentColors = {
+            red: false,
+            green: false,
+            blue: false
+        };
     }
 
     detectCollision(lights){
         let col = false;
-        this.currenctColors = [];
+        this.currenctColors = {
+            red: false,
+            green: false,
+            blue: false
+        };
         for (let light of lights.values()) {
             for (let j = 0; j < light.beam.segments.length; j++) {
                 var segment = light.beam.segments[j];
@@ -32,7 +40,7 @@ class Plant extends InteractiveObject {
                 let point =  {x: this.location.x, y: this.location.y};
                 if (distToSegment(point, line_v, line_w) < this.size/2){   // collision
                     col = true;
-                    this.currenctColors.push(light.color);
+                    this.currentColors[light.color] = true;
                 }
             }
         }
@@ -41,14 +49,8 @@ class Plant extends InteractiveObject {
         } else {
             this.color = this.colorplaceholder
         }
-
     }
     draw(p5){
-
-        if (this.currenctColors){
-            console.log(this.currenctColors);
-        }
-
         p5.noStroke();
         if (this.state === IO_STATE.UNSELECTED || this.state === IO_STATE.HOVERING){
             p5.fill(this.color);

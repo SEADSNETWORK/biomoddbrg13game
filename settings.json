@@ -21,7 +21,7 @@
         "beginningTime": 3,
         "duration": 20,
         "mirrorsPerPlayer": 3,
-        "plantsAmount": 5,
+        "plantsAmount": 1,
         "safeDistance": 50,
         "scoreUpdate": 20
     },
