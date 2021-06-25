@@ -6,7 +6,7 @@ const MODE = Object.freeze({
     "FORCED": 3
 })
 
-const mode = MODE.SIMULATION;
+const mode = MODE.HYBRID;//SIMULATION;
 const updateSpeed = 3000;
 const maxAmountOfFailed = 10;
 
@@ -23,15 +23,38 @@ class Sensor {
     }
 
     simulateValue() {
-        this.setValue(Math.abs(this.simplex.noise2D(this.seed, this.counter)), true)
+        this.setValue(Math.abs(this.simplex.noise2D(this.seed, this.counter)), false, true)
     }
 
-    setValue(_newvalue, untouchFailed) {
+    setValue(_newvalue, sens, untouchFailed) {
         this.counter++;
-        this.value = _newvalue;
-        this.updated = true;
-        if (!untouchFailed) {
-            this.failedRequest = 0;
+
+
+        if (sens) {
+            _newvalue = JSON.stringify(_newvalue);
+
+            if (_newvalue !== "NaN") {
+
+
+                if (this.type === "Humidity") {
+                    _newvalue = _newvalue.split(",")[0];
+                } else if (this.type === "Temperature") {
+                    _newvalue = _newvalue.split(",")[1];
+                }
+
+                _newvalue = parseFloat(_newvalue.split(":")[1]);
+                this.value = _newvalue;
+            } else {
+                untouchFailed = true;
+            }
+
+
+            this.value = _newvalue;
+            this.updated = true;
+
+            if (!untouchFailed) {
+                this.failedRequest = 0;
+            }
         }
     }
 
@@ -102,6 +125,19 @@ class ClusterController {
         }, updateSpeed);
         parent.update();
     }
+
+    sensorUpdate(data){
+        let espid = data.clientName;
+        for (var i = 0; i< this.plantclusters.length; i++ ){
+
+                        if (this.plantclusters[i].name === espid){
+                            this.plantclusters[i].sensors[0].setValue(data.sensorData, true);
+                        }
+        }
+    }
+
+
+
 
     update(){
         let newvalues = false;

@@ -197,6 +197,11 @@ const scoreHistory = []
             }
         });
 
+
+        socket.on('sensorUpdate', (data) => {
+            clusterController.sensorUpdate(data);
+        })
+
         socket.on("/updateLight", ({color, rotation})=>{
             state[color] = rotation;
         })
