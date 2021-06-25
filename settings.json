@@ -19,9 +19,9 @@
     ],
     "game" : {
         "beginningTime": 3,
-        "duration": 20,
+        "duration": 40,
         "mirrorsPerPlayer": 3,
-        "plantsAmount": 1,
+        "plantsAmount": 5,
         "safeDistance": 50,
         "scoreUpdate": 20
     },

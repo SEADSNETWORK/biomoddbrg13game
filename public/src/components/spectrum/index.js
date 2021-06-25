@@ -95,7 +95,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
             if (mirrors.length){
                 // update
                 mirrors.forEach((mirror, i)=>{
-                    if (mirror && mirror.state == IO_STATE.UNSELECTED && mirror.handle.state == IO_STATE.UNSELECTED){
+                    if (mirror && mirror.state == IO_STATE.UNSELECTED && mirror.handle.state == IO_STATE.UNSELECTED && gameUpdate.mirrors[i]){
                         const newmirror = gameUpdate.mirrors[i];
                         mirror.handle.target = p5.createVector(newmirror.rx, newmirror.ry);
                         mirror.setNormalizedLocation(newmirror.x, newmirror.y, p5);
@@ -162,6 +162,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
     // =============================== 
 	const draw = (p5) => {
 		p5.background(settings.background);
+        
         toDraw.forEach(td=>td.draw(p5));
         plants.forEach(mr=>mr.detectCollision(lights));
 
@@ -199,6 +200,13 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
                     if (p.currentColors[player]){
                         score++;
                     }
+
+                    const colors = {
+                        red: p.currentColors.red,
+                        green: p.currentColors.green,
+                        blue: p.currentColors.blue
+                    }
+
                     p.currentColors = {
                         red: false,
                         green: false,
@@ -206,7 +214,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
                     };
                     return {
                     index,
-                    colors: p.currentColors
+                    colors
                 }}))
             }
 

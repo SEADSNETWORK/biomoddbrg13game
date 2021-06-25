@@ -57,6 +57,11 @@
   "resolved" "https://registry.npmjs.org/array-flatten/-/array-flatten-1.1.1.tgz"
   "version" "1.1.1"
 
+"artnet@^1.4.0":
+  "integrity" "sha1-jwDYllrNwzBIbOOfzBI8eeL/fEU="
+  "resolved" "https://registry.npmjs.org/artnet/-/artnet-1.4.0.tgz"
+  "version" "1.4.0"
+
 "asciiart-logo@^0.2.6":
   "integrity" "sha512-qAGPI1Y984SMiONbZ1gI3YdG1bm+mmCj2AklusFqYVVCikPo3jss7IlcZkt+FoRInaomrMn0OQtPaKkt90NApg=="
   "resolved" "https://registry.npmjs.org/asciiart-logo/-/asciiart-logo-0.2.6.tgz"

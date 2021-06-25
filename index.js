@@ -13,8 +13,10 @@ const logo                  = require('./src/logo').default(config, settings);
 const database              = require('./src/database').default(settings);
 const cleanup               = require('./src/cleanup').default();
 const gameWorld             = require('./src/setupGameWorld').default(settings.game.resolution);
+const dmx =  new (require("./src/artnet.js").default)();
 let clusterController = null;
 const { nanoid } = require('nanoid')
+
 
 
 const PHASES = Object.freeze({
@@ -152,6 +154,7 @@ const scoreHistory = []
                         })
                     }
                     updatePhase(PHASES.RUNNING);
+                    dmx.setAll(dmx.colEnum.off)
                 }, settings.game.beginningTime * 1000);
 
                 
@@ -161,6 +164,7 @@ const scoreHistory = []
                     }
                     updatePhase(PHASES.END);
                     sendHighScores();
+                    dmx.setAll(dmx.colEnum.static)
                     io.emit("/players", players);
                 }, (settings.game.duration + settings.game.beginningTime) * 1000)
             }
@@ -213,6 +217,12 @@ const scoreHistory = []
 
         socket.on("/lights", (lights)=>{
             // change lights here....
+            // console.log(lights);
+            if (dmx.workers.length == 0){
+                lights.forEach((l)=>{
+                    dmx.setColor(l.index, l.colors);    
+                })
+            }
         })
 
       });
@@ -256,6 +266,7 @@ const scoreHistory = []
     server
     .listen(process.env.PORT || settings.port, () => {
         logo();
+        dmx.setAll(dmx.colEnum.static);
     })
 // }).catch(console.error)
 
