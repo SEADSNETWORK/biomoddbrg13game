@@ -13,7 +13,7 @@ class Dmx {
             red: [255, 102, 76],
             green: [153, 255, 127],
             blue: [127, 166, 255],
-            peach: [70, 60, 40],
+            peach: [140, 255, 120],
             rg1: [166, 25, 10],
             rg2: [110, 134, 0],
             gb1: [0, 205, 115],
@@ -177,7 +177,7 @@ class Dmx {
             this.setOne(light, cl);
             setTimeout(()=>{
                 this.workers.pop();
-            }, 1500)
+            }, 6000)
             cl = [cl[0] - rc, cl[1] - gc, cl[2] - bc];
         }
     }

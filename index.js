@@ -13,7 +13,9 @@ const logo                  = require('./src/logo').default(config, settings);
 const database              = require('./src/database').default(settings);
 const cleanup               = require('./src/cleanup').default();
 const gameWorld             = require('./src/setupGameWorld').default(settings.game.resolution);
-const dmx =  new (require("./src/artnet.js").default)();
+const dmx                   = new (require("./src/artnet.js").default)();
+const hue                   = new(require("./src/hue").default)();
+const osc                   = new(require("./src/osc").default)();
 let clusterController = null;
 const { nanoid } = require('nanoid')
 
@@ -155,6 +157,10 @@ const scoreHistory = []
                     }
                     updatePhase(PHASES.RUNNING);
                     dmx.setAll(dmx.colEnum.off)
+                    hue.off1();
+                    hue.off2();
+                    osc.enable = true;
+                    
                 }, settings.game.beginningTime * 1000);
 
                 
@@ -164,7 +170,10 @@ const scoreHistory = []
                     }
                     updatePhase(PHASES.END);
                     sendHighScores();
-                    dmx.setAll(dmx.colEnum.static)
+                    dmx.setAll(dmx.colEnum.peach)
+                    hue.on1();
+                    hue.on2();
+                    osc.enable = false;
                     io.emit("/players", players);
                 }, (settings.game.duration + settings.game.beginningTime) * 1000)
             }
@@ -266,7 +275,10 @@ const scoreHistory = []
     server
     .listen(process.env.PORT || settings.port, () => {
         logo();
-        dmx.setAll(dmx.colEnum.static);
+        dmx.setAll(dmx.colEnum.peach);
+        hue.on1();
+        hue.on2();
+        osc.enable = false;
     })
 // }).catch(console.error)
 

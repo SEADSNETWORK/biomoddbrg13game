@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@peter-murray/hue-bridge-model@^2.0.1":
+  "integrity" "sha512-UaKR8NZZk4KgkEfVMKWeJEt7aOu4dCDnO45vNuRgS8DU6SV0BA8YLGlABiCjBsiYY3agkaEm7e2muF96q+Wbpw=="
+  "resolved" "https://registry.npmjs.org/@peter-murray/hue-bridge-model/-/hue-bridge-model-2.0.1.tgz"
+  "version" "2.0.1"
+
 "@types/bson@*":
   "integrity" "sha512-mVRvYnTOZJz3ccpxhr3wgxVmSeiYinW+zlzQz3SXWaJmD1DuL05Jeq7nKw3SnbKmbleW5qrLG5vdyWe/A9sXhw=="
   "resolved" "https://registry.npmjs.org/@types/bson/-/bson-4.0.3.tgz"
@@ -81,6 +86,11 @@
   "resolved" "https://registry.npmjs.org/base64id/-/base64id-2.0.0.tgz"
   "version" "2.0.0"
 
+"binpack@~0":
+  "integrity" "sha1-vT0JdMPyoERuF99PYLVacqIFqX4="
+  "resolved" "https://registry.npmjs.org/binpack/-/binpack-0.1.0.tgz"
+  "version" "0.1.0"
+
 "bl@^2.2.1":
   "integrity" "sha512-6Pesp1w0DEX1N550i/uGV/TqucVL4AM/pgThFSN/Qq9si1/DF9aIHs1BxD8V/QU0HoeHO6cQRTAuYnLPKq1e4g=="
   "resolved" "https://registry.npmjs.org/bl/-/bl-2.2.1.tgz"
@@ -109,6 +119,11 @@
     "qs" "6.7.0"
     "raw-body" "2.4.0"
     "type-is" "~1.6.17"
+
+"bottleneck@^2.19.5":
+  "integrity" "sha512-VHiNCbI1lKdl44tGrhNfU3lup0Tj/ZBMJB5/2ZbNXRCPuRCO7ed2mgcK4r17y+KB2EfuYuRaVlwNbAeaWGSpbw=="
+  "resolved" "https://registry.npmjs.org/bottleneck/-/bottleneck-2.19.5.tgz"
+  "version" "2.19.5"
 
 "bson@^1.1.4":
   "integrity" "sha512-S/yKGU1syOMzO86+dGpg2qGoDL0zvzcb262G+gqEy6TgP6rt6z6qxSFX/8X6vLC91P7G7C3nLs0+bvDzmvBA3Q=="
@@ -374,6 +389,11 @@
   "resolved" "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
   "version" "1.0.0"
 
+"jspack@0.0.4":
+  "integrity" "sha1-Mt01x/3LPjRWwY+7fvntC8YjgXc="
+  "resolved" "https://registry.npmjs.org/jspack/-/jspack-0.0.4.tgz"
+  "version" "0.0.4"
+
 "kareem@2.3.2":
   "integrity" "sha512-STHz9P7X2L4Kwn72fA4rGyqyXdmrMSdxqHx9IXon/FXluXieaFA6KJ2upcHAHxQPQ0LeM/OjLrhFxifHewOALQ=="
   "resolved" "https://registry.npmjs.org/kareem/-/kareem-2.3.2.tgz"
@@ -498,6 +518,28 @@
   "resolved" "https://registry.npmjs.org/node-bin-setup/-/node-bin-setup-1.0.6.tgz"
   "version" "1.0.6"
 
+"node-fetch@^2.6.1":
+  "integrity" "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
+  "resolved" "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.1.tgz"
+  "version" "2.6.1"
+
+"node-hue-api@^5.0.0-beta.2":
+  "integrity" "sha512-KG8GTqqXbg+aR4ZEqbaYiAnAwrX6hqJFpDGsBwSC87v/qPSTMZpP/Zb5OnilRusudQ69oVbWQUWgI/rdUurRTQ=="
+  "resolved" "https://registry.npmjs.org/node-hue-api/-/node-hue-api-5.0.0-beta.2.tgz"
+  "version" "5.0.0-beta.2"
+  dependencies:
+    "@peter-murray/hue-bridge-model" "^2.0.1"
+    "bottleneck" "^2.19.5"
+    "node-fetch" "^2.6.1"
+
+"node-osc@^5.2.3":
+  "integrity" "sha512-RPeIUHTM8nevqyPtFnOv+craZjpUwZEcLUuan1qW1N0GbUYZ5gJGFPLLNKriLS6gHqmVMymfOEcaI4tfTOFbmg=="
+  "resolved" "https://registry.npmjs.org/node-osc/-/node-osc-5.2.3.tgz"
+  "version" "5.2.3"
+  dependencies:
+    "jspack" "0.0.4"
+    "osc-min" "^1.1.1"
+
 "node@^16.1.0":
   "integrity" "sha512-aNOLBP7p6GS0CdsFTR3JjXd/kSfOYt6UvXL+UX7Fu+fIMr04lsZWpE+Y8CQOprwfrqnFSq3bkIscrAiZieM/kg=="
   "resolved" "https://registry.npmjs.org/node/-/node-16.3.0.tgz"
@@ -516,6 +558,13 @@
   "version" "2.3.0"
   dependencies:
     "ee-first" "1.1.1"
+
+"osc-min@^1.1.1":
+  "integrity" "sha512-8DbiO8ME85R75stgNVCZtHxB9MNBBNcyy+isNBXrsFeinXGjwNAauvKVmGlfRas5VJWC/mhzIx7spR2gFvWxvg=="
+  "resolved" "https://registry.npmjs.org/osc-min/-/osc-min-1.1.2.tgz"
+  "version" "1.1.2"
+  dependencies:
+    "binpack" "~0"
 
 "parseurl@~1.3.3":
   "integrity" "sha512-CiyeOxFT/JZyN5m0z9PfXw4SCBJ6Sygz1Dpl0wqjlhDEGGBP1GnsUVEL0p63hoG1fcj3fHynXi9NYO4nWOL+qQ=="

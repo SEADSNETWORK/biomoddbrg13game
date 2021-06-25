@@ -46,9 +46,9 @@ class Hue {
     off2(){
         this.off(5);
     }
-
 }
 
+exports.default = Hue;
 
 
 // Usage;
