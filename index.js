@@ -189,10 +189,12 @@ const scoreHistory = []
 
         socket.on("/updateMirror", ({index, x, y, rx, ry})=>{
             const m = state.mirrors[index];
-            m.x = x;
-            m.y = y;
-            m.rx = rx;
-            m.ry = ry;
+            if (m){
+                m.x = x;
+                m.y = y;
+                m.rx = rx;
+                m.ry = ry;
+            }
         });
 
         socket.on("/updateLight", ({color, rotation})=>{
