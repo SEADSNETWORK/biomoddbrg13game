@@ -6,6 +6,8 @@ import Light from './light'
 import Mirror from "./mirror";
 import { IO_STATE } from "./interactiveObject";
 import { ACTIONS as DATA_ACTIONS } from "../../reducers/DataReducer"
+import { Grid } from "./grid";
+
 
 // ===============================
 // ===============================
@@ -20,6 +22,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
     const lights        = new Map();
     const plants        = [];
     const mirrors        = [];
+    let grid;
 
     // -- keep track of all objects we want to draw 
     // --- expects they implemented a draw(p5) method
@@ -73,6 +76,8 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
         } else {
             throw "canvas not found"
         }
+
+        grid = new Grid(100, "grey", p5);
 
         // setup sockets
         socket.on("/gameUpdate", (gameUpdate)=>{
@@ -162,6 +167,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
     // =============================== 
 	const draw = (p5) => {
 		p5.background(settings.background);
+        grid.draw();
         
         toDraw.forEach(td=>td.draw(p5));
         plants.forEach(mr=>mr.detectCollision(lights));
