@@ -1,6 +1,7 @@
 import {IO_STATE, InteractiveObject} from './interactiveObject.js'
 
 import {distToSegment} from './auxi'
+import {Flower as FlowerGraphic} from './graphics';
 
 // ===============================
 //      P L A N T
@@ -8,11 +9,11 @@ import {distToSegment} from './auxi'
 // Them plants
 
 class Plant extends InteractiveObject {
-    constructor({location, size, color, alternativeColor, onClick}){
+    constructor({location, size, color, alternativeColor, onClick, p5, grid, collisionColor}){
         super(location, size);
         this.color = color;
         this.alternativeColor = alternativeColor;
-        this.collisionColor = 'red';
+        this.collisionColor = collisionColor;
         this.colorplaceholder = color;
         this.onClick = onClick;
         this.currentColors = {
@@ -20,6 +21,9 @@ class Plant extends InteractiveObject {
             green: false,
             blue: false
         };
+
+        this.flower = new FlowerGraphic(Math.ceil(p5.random(4,6)), Math.ceil(p5.random(2,4)), Math.ceil(p5.random(5, 8)), p5.color(p5.random(75, 128), p5.random(75, 128), p5.random(75, 128)), p5);
+        this.coords = grid.nearestGridPoint({ x: p5.random(0, 1), y: p5.random(0, 1)});
     }
 
     detectCollision(lights){
@@ -51,6 +55,12 @@ class Plant extends InteractiveObject {
         }
     }
     draw(p5){
+        p5.push();
+        p5.translate(this.location.x, this.location.y);
+        this.flower.draw();
+
+        p5.pop();
+
         p5.noStroke();
         if (this.state === IO_STATE.UNSELECTED || this.state === IO_STATE.HOVERING){
             p5.fill(this.color);

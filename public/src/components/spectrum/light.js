@@ -2,7 +2,7 @@ import {IO_STATE, InteractiveObject} from './interactiveObject'
 import {mouseV} from './auxi'
 import p5 from "react-p5"
 import Handle from "./handle.js"
-
+import { Light as LightGraphic } from './lightGraphic';
 
 // ===============================
 //      L I G H T
@@ -204,12 +204,11 @@ class Light extends InteractiveObject {
         this.strokeWeight = strokeWeight;
         this.player = player;
         this.hide = hide;
-
-        
+        this.lightGraphic = new LightGraphic(1, this.color, p5)
          
         // set random direction (direction needs to come from biomodd server) and create handle
         let randDirection = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-        this.handle = new Handle(this.location, 10, 50, randDirection, this.color, this.strokeWeight);
+        this.handle = new Handle(this.location, 10, 100, randDirection, this.color, this.strokeWeight);
 
         // create the beam with the direction from the handle
         this.beam = new Beam(this.location, p5.createVector(-this.handle.getDirection(p5).x, -this.handle.getDirection(p5).y), color, mirrors, p5);        
@@ -224,13 +223,18 @@ class Light extends InteractiveObject {
         if (this.hide){
             return;
         }
+        p5.push();
+        p5.translate(this.location.x, this.location.y);
+        p5.rotate(-this.handle.direction.angleBetween(p5.createVector(1, 1))-Math.PI/4)
+        this.lightGraphic.draw();
+        p5.pop();
 
         // draw circle for the light
         p5.noStroke();
         if (this.iPlay()){
             p5.fill(this.color);
         } 
-        p5.circle(this.location.x, this.location.y, this.size);
+        // p5.circle(this.location.x, this.location.y, this.size);
         p5.noFill();
 
         // draw handle

@@ -46,7 +46,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
     const plantSettings = {
         amount: 1,
         size: 40,
-        color: "white",
+        color: "grey",
         alternativeColor: "lightgreen"
     }
 
@@ -60,6 +60,16 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
     // ===============================
     const getCenter = (p5)=>{
         return p5.createVector(p5.width*.5, p5.height*.5);
+    }
+
+    const getPlayerColor = ()=>{
+        if (player == "green" || player == "greens"){
+            return "green"
+        }
+        if (player == "blue" || player == "blues"){
+            return "blue"
+        }
+        return "red";
     }
 
     // const getRandomPoint = (p5)=> p5.createVector(Math.random()*p5.width, Math.random()*p5.height);
@@ -91,7 +101,7 @@ export default ({socket, player, players, safeDistance, scoreUpdate}) => {
                     plants[i] = new Plant({location: p5.createVector(p.x*p5.width, p.y*p5.height), ID: p.ID,
                         onClick: ()=>{
                             socket.emit("/selected", {type: "plant", index: i});
-                        },...plantSettings});
+                        }, grid, p5, collisionColor:getPlayerColor() , ...plantSettings});
                     toDraw.push(plants[i]);
                     toInteract.push(plants[i]);
                 });
