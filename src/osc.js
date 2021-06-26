@@ -142,7 +142,7 @@ class GamePress extends DataSender {
 class OscSound {
     constructor() {
 
-        this.address = '192.168.0.112'
+        this.address = 'localhost'
         this.port = 12345
         this.client = new Client(this.address, this.port);
         this.senders = [];
