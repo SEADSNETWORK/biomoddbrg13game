@@ -13,7 +13,8 @@ const logo                  = require('./src/logo').default(config, settings);
 const database              = require('./src/database').default(settings);
 const cleanup               = require('./src/cleanup').default();
 const gameWorld             = require('./src/setupGameWorld').default(settings.game.resolution);
-const dmx                   = new (require("./src/artnet.js").default)();
+const Dmx                   = require("./src/artnet.js").default
+let dmx                   = new Dmx();
 const hue                   = new(require("./src/hue").default)();
 const osc                   = new(require("./src/osc").default)();
 let clusterController = null;
@@ -58,6 +59,13 @@ const scoreHistory = []
         io.emit("/updateSensors", plantclusters);
     }
     clusterController = new (require('./src/ClusterController').default)(settings.sensorTypes, settings.plantClusters, onUpdate);
+
+    setInterval(()=>{
+        if (dmx && phase == PHASES.END){
+            dmx.setAll(dmx.colEnum.peach);
+            console.log('done')
+        }
+    }, 50000)
 
     /**
      * SOOCKET SETUP
@@ -171,6 +179,7 @@ const scoreHistory = []
                     updatePhase(PHASES.END);
                     sendHighScores();
                     dmx.setAll(dmx.colEnum.peach)
+                    //dmx = new Dmx();
                     hue.on1();
                     hue.on2();
                     osc.enable = false;

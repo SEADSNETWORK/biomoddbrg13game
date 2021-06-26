@@ -18,8 +18,8 @@
         "value"
     ],
     "game" : {
-        "beginningTime": 30,
-        "duration": 90,
+        "beginningTime": 1,
+        "duration": 5,
         "mirrorsPerPlayer": 3,
         "plantsAmount": 5,
         "safeDistance": 50,
