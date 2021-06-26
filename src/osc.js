@@ -188,6 +188,8 @@ class OscSound {
             this.endGame();
         }
 
+        this.send("/installationactive", 1);
+
         this.senders.forEach(sender=>{
             const v = sender.update();
             this.send(v.addr, v.value);

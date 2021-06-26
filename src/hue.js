@@ -15,6 +15,7 @@ class Hue {
 
 
     on(lID){
+        this.con =  this.v3.api.createLocal(this.host).connect(this.USERNAME);
         const state = new this.LightState().on();
         this.con.then( api => {return api.lights.setLightState(lID, state);}).then(result => {
             console.log(`Light state change was successful? ${result}`);
@@ -22,6 +23,7 @@ class Hue {
     }
 
     off(lID){
+        this.con =  this.v3.api.createLocal(this.host).connect(this.USERNAME);
         const state = new this.LightState().off();
         this.con.then( api => {return api.lights.setLightState(lID, state);}).then(result => {
             console.log(`Light state change was successful? ${result}`);
